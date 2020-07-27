@@ -1,0 +1,5 @@
+{
+	"compiled_src/js/index.js":["src/js/base.js","src/js/index/index.js"],
+	"compiled_src/js/a.js":["src/js/base.js","src/js/a/a.js"]
+}
+

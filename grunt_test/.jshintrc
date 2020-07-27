@@ -1,0 +1,21 @@
+{
+  "curly": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "sub": true,
+  "boss": true,
+  "eqnull": true,
+  "undef":true,
+  "node": true,
+  "boss": true,
+  "expr":true,
+  "sub":true,
+  "browser":true,
+  "latedef": false,
+  "globals": {
+    "$": true,
+    "jQuery": true
+  },
+  "browser":true
+}

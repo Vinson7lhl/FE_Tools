@@ -1,0 +1,105 @@
+/*------------------全局变量------------------*/
+$gray:#4e4e4e;
+
+/*------------------重置样式------------------*/
+html,body,div,p,section,article{
+    font-size:0.14rem;
+    color: $gray;
+}
+html,body,div,p,section,article,h1, h2, h3, h4, h4, h5 {
+	padding: 0;
+	margin: 0;
+    box-sizing: border-box;
+    color:$gray
+}
+input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+/*------------------增加public常用类,p ==> public class------------------*/
+// 通用左右留白
+.p-frame{
+    padding-left:0.4rem;
+    padding-right:0.4rem;
+}
+// 省略号
+.p-ell{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// 隐藏
+.p-hide{
+    display: none;
+}
+// 显示
+.p-show{
+    display: block;
+}
+// 对于有定宽高
+.p-clear1{
+    overflow: hidden;
+}
+// 增加独立的块级元素
+.p-clear2{
+    clear:both;
+}
+// 伪类
+.p-clear3:after{
+    display:block;
+    content:'';
+    clear:both;
+}
+// 遮罩层
+.p-bg{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+// 模态框层（宽高自定义）
+.p-pop{
+    position: fixed;
+    background-color: #ffffff;
+    border-radius: 0.05rem;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    z-index: 100;
+    display: none;
+}
+// 自定义button
+.p-button{
+    width:100%;
+    height:0.4rem;
+    border-radius: 0.05rem;
+    box-shadow: 0rpx 0rpx 10rpx 1rpx rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height:0.4rem;
+}
+// 自定义button,置灰无效状态
+.p-button-dis{
+    opacity: 0.5;
+}
+// 修改placeholder
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:#999999
+    // text-align: center
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#999999
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#999999
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#999999
+}

@@ -1,0 +1,11 @@
+根：{
+	compiled_scr:编译好的less，sass，和已经合并的js,
+	mini：压缩的js，css,(不包括库文件-jquery等)
+	src：原始js，less,
+	page:页面模板文件
+	{
+		font：字体
+		imgs：图片
+		template：模板公共模块（头部和尾部）
+	}
+}

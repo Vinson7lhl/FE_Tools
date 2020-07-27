@@ -1,0 +1,16 @@
+@import './base.scss';
+
+.indexPage {
+    .head {
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 38px
+    }
+
+    #image_content {
+        width: 100px;
+        height: 100px;
+        background: url('../img/good.png');
+        display: block;
+    }
+}

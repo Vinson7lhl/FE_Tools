@@ -1,0 +1,17 @@
+
+@import './base.scss';
+
+#list_page{
+    background-color: #4e4e4e;
+    .listTitle{
+        font-size:16px;
+        font-weight:bold;
+        color:red;
+    }
+    ul{
+        li{
+            text-decoration: none;
+            list-style: none;
+        }
+    }
+}

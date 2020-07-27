@@ -1,0 +1,5 @@
+{
+	"compiled_src/css/test1.css":["src/less/base.less","src/less/test1.less","src/less/test2.less"],
+	"compiled_src/css/test2.css":["src/less/base.less","src/less/test2.less","src/less/test3.less"]
+}
+
