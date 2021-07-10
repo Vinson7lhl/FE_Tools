@@ -1,20 +1,7 @@
 /**
- *    
- *  npm安装模块
-
-    【npm install xxx】利用 npm 安装xxx模块到当前命令行所在目录；
-    【npm install -g xxx】利用npm安装全局模块xxx；
-
-    本地安装时将模块写入package.json中：
-
-    【npm install xxx】安装但不写入package.json；
-    【npm install xxx –save】 安装并写入package.json的”dependencies”中；
-    【npm install xxx –save-dev】安装并写入package.json的”devDependencies”中。
-
-    npm 删除模块
-
-    【npm uninstall xxx】删除xxx模块； 
-    【npm uninstall -g xxx】删除全局模块xxx；
+ *  src内部采用es6的模块方式，所以一定是import 、 export
+ *  但是webpack配置采用的是commonJs模块方式所以，是require/module.export
+ *  development模式下只是编译了代码并未压缩代码，还保留着注释等冗余，但是production则是压缩后的线上代码
  */
 
 
@@ -43,7 +30,8 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].js',
-    // path.resolve(__dirname 得到的就是根目录 webpackTest这个路径
+    // path.resolve方法会返回一个路径字符串，__dirname 得到的就是webpack.comfig.js所在项目根目录=>webpack_test
+    // 所以返回的就应该是'webpack_test/dist/……'
     path: path.resolve(__dirname, 'dist')
   },
   // loader
