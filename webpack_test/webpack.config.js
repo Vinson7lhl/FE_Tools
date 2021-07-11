@@ -32,7 +32,9 @@ module.exports = {
     filename: 'js/[name].js',
     // path.resolve方法会返回一个路径字符串，__dirname 得到的就是webpack.comfig.js所在项目根目录=>webpack_test
     // 所以返回的就应该是'webpack_test/dist/……'
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    // 
+    publicPath: '../'
   },
   // loader
   module: {
@@ -59,17 +61,18 @@ module.exports = {
           'sass-loader'
         ]
       },
-      // 处理css文件中通过url引入的图片文件全部放在image中
+      // 处理css文件中通过url引入的图片文件全部放在image中，处理不了html中引入的<img />，此loader用的是es6模块方式引入
       {
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader',
         options:{
-          // 小于8k以64base的img来展示
+          // 小于8k以base-64的img来展示
           limit: 8*1024,
-          name: 'image/[name].[ext]'
+          name: 'image/[name].[ext]',
+          // esModule: false
         }
       },
-      // 模块化html，在js中 import html时处理，也可以处理html中的有src的属性的标签：比如图片，视频
+      // 模块化html，在js中 import html时处理，也可以处理html中的有src的属性的标签：比如图片，视频。此loader用的是commonJs模块方式引入
       {
         test: /\.html$/,
         loader: 'html-loader'
@@ -81,14 +84,15 @@ module.exports = {
     // html-webpack-plugin配置，用来找到当做模板的html文件
     new HtmlWebpackPlugin(
       {
-        filename: 'index.html',
+        filename: 'pages/index.html',
+        // 找到要复制的模板文件然后放入打包后的目录中
         template: './src/pages/index.html',
         chunks: ['index'],
         minify: false
       }
     ),
     new HtmlWebpackPlugin({
-      filename: 'list.html',
+      filename: 'pages/list.html',
       template: './src/pages/list.html',
       chunks: ['list']
     }),

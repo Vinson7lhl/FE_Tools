@@ -4,8 +4,8 @@
   "description": "FE Tester",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --open --mode=development",
+    "build": "webpack --mode=production"
   },
   "keywords": [
     "lhl"
