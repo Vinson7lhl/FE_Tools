@@ -28,18 +28,18 @@ module.exports = {
     index: './src/js/index.js',
     list : './src/js/list.js'
   },
+  // 出口，最终打包后的js、等文件的出口
   output: {
     filename: 'js/[name].js',
     // path.resolve方法会返回一个路径字符串，__dirname 得到的就是webpack.comfig.js所在项目根目录=>webpack_test
     // 所以返回的就应该是'webpack_test/dist/……'
     path: path.resolve(__dirname, 'dist'),
-    // 
+    // html-loader转换后的图片等资源会默认为./即当前路径，但是这样是不对的。src/ 中的相对路径也希望和在dist/ 中保持一致，此配置就是为了html中的统一src而存在的。
     publicPath: '../'
   },
-  // loader
+  // loader：处理所有非js、json文件
   module: {
     rules: [
-      // loader详细
       {
         test: /\.scss$/,
         // use中的数组中的执行顺序从右到左，即'sass-loader'=>'css-loader'=>'style-loader',
@@ -66,7 +66,7 @@ module.exports = {
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader',
         options:{
-          // 小于8k以base-64的img来展示
+          // 小于8k以base-64的img来展示，否则放在image中
           limit: 8*1024,
           name: 'image/[name].[ext]',
           // esModule: false
@@ -79,7 +79,7 @@ module.exports = {
       }
     ]
   },
-  // plugins的配置
+  // plugins：处理loader无法处理和特殊功能的
   plugins: [
     // html-webpack-plugin配置，用来找到当做模板的html文件
     new HtmlWebpackPlugin(
