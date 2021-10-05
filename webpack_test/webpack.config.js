@@ -7,7 +7,8 @@
 
 // 或者利用es6的解构
 // const { resolve } = require('path');
-let path = require('path');
+let path = require('path')
+let webpack = require('webpack')
 // 处理css中的图片url,需要两个包，url-loader（和file-loader很相似，但可以返回一个当小于某个大小的文件时的data64格式的字符串），file-loader
 
 
@@ -19,16 +20,15 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 // 提取css到独立文件
 let MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 每次build清空dist目录
-let { CleanWebpackPlugin } = require('clean-webpack-plugin');
-let webpack=require('webpack');
+let { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  // 多个入口，每个页面都有自己的独立js模块
+  // 多个入口，每个页面都有自己的独立js模块，后面HtmlWebpackPlugin插件会指定对应的html装载哪个js
   entry: {
     index: './src/js/index.js',
     list : './src/js/list.js'
   },
-  // 出口，最终打包后的js、等文件的出口
+  // 出口，最终打包后的js、等文件的出口，注意：只有一个出口
   output: {
     filename: 'js/[name].js',
     // path.resolve方法会返回一个路径字符串，__dirname 得到的就是webpack.comfig.js所在项目根目录=>webpack_test
@@ -61,7 +61,7 @@ module.exports = {
           'sass-loader'
         ]
       },
-      // 处理css文件中通过url引入的图片文件全部放在image中，处理不了html中引入的<img />，此loader用的是es6模块方式引入
+      // 处理css文件中通过url引入的图片文件全部放在image中以路径引入，但处理不了html中引入的<img />，此loader用的是es6模块方式引入
       {
         test: /\.(jpg|png|gif)$/,
         loader: 'url-loader',
@@ -84,6 +84,7 @@ module.exports = {
     // html-webpack-plugin配置，用来找到当做模板的html文件
     new HtmlWebpackPlugin(
       {
+        // 打包后的目录：基于dist
         filename: 'pages/index.html',
         // 找到要复制的模板文件然后放入打包后的目录中
         template: './src/pages/index.html',
