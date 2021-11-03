@@ -30,6 +30,7 @@ module.exports = {
   },
   // 出口，最终打包后的js、等文件的出口，注意：只有一个出口
   output: {
+    // bundle名
     filename: 'js/[name].js',
     // path.resolve方法会返回一个路径字符串，__dirname 得到的就是webpack.comfig.js所在项目根目录=>webpack_test
     // 所以返回的就应该是'webpack_test/dist/……'
