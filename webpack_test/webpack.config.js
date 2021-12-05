@@ -112,6 +112,6 @@ module.exports = {
   devServer: {
     hot: true
   },
-  // 模式 development || production
+  // 模式 development || production，一旦为production 则会自动压缩所有文件
   mode: 'development'
 };
