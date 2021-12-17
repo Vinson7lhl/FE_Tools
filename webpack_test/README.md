@@ -1,16 +1,48 @@
-#### *此项目是为了玩转webpack5而进行的测试*
-
-------
+# 此项目是为了玩转webpack5而进行的测试
 
 ##### 运行方式
 
-###### npm install || cnpm install（淘宝镜像更快）
-###### npm run dev                               dev 环境，会在内存中生成
-###### npm run build                             production 环境，会在build文件夹中生成打包好的文件
+```bash
+# cnpm i			安装包
+# npm run dev		dev 环境，会在内存中生成
+# npm run build		production 环境，会在build文件夹中生成打包好的文件
+```
 
 
 
-##### css处理
+├─.DS_Store
+├─.gitignore
+├─package-lock.json
+├─package.json
+├─README.md
+├─webpack.config.js
+├─src
+|  ├─.DS_Store
+|  ├─sass
+|  |  ├─base.scss
+|  |  ├─index.scss
+|  |  └list.scss
+|  ├─pages
+|  |   ├─index.html
+|  |   └list.html
+|  ├─js
+|  | ├─index.js
+|  | ├─list.js
+|  | ├─lib
+|  | |  └public.js
+
+##### loader说明
+
+| loader-name  | loader-fun-des                                 | tips                           |
+| ------------ | ---------------------------------------------- | ------------------------------ |
+| sass-loader  | 将sass文件编译为css                            |                                |
+| css-loader   | 将css转换为js可识别模块                        |                                |
+| style-loader | 将css模块以<style>标签的形式插入到html中       |                                |
+| url-loader   | 处理css中src引入的静态文件/import 引入静态文件 | 有大小限制，过大会转换为base64 |
+| file-loader  | 处理css中src引入的静态文件/import 引入静态文件 |                                |
+|              |                                                |                                |
+
+css处理
 
 ###### sass-loader                               将sass文件编译为css
 ###### css-loader                                将css转换为js可识别模块
